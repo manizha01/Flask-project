@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>available Items in the shop</h2>
+
+
+{% for item in cont %}
+
+<div class="row featurette">
+
+    {% if loop.index %2 != 0 %}
+    <dive class="col-md-7">
+        <img class="featurette-image img-responsive" src="{{ item.image }}">
+    </dive>
+    <div class="col-md-5">
+        <h1><a href="/about/{{ item.name }}">{{  loop.index }}. {{ item.name }}</a></h1>
+        <p> {{ item.description }}</p>
+        <p> {{ item.color}} </p>
+        <h4> {{ item.price }}</h4>
+    </div>
+    {% else %}
+    <div class="col-md-5">
+        <h1><a href="/about/{{ item.name }}">{{  loop.index }}. {{ item.name }}</a></h1>
+        <p> {{ item.description }}</p>
+        <p> {{ item.color}} </p>
+        <h4> {{ item.price }}</h4>
+    </div>
+
+    <dive class="col-md-7">
+        <img class="featurette-image img-responsive" src="{{ item.image }}">
+    </dive>
+
+
+    {% endif %}
+</div>
+<hr>
+
+
+
+{% endfor %}
+
+{% endblock%}

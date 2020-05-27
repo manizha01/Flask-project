@@ -1,0 +1,194 @@
+define("msg-mentions/adapters/-ember-m3",["exports","global-utils/utils/headers","ember-cli-pemberly-m3","ember-cli-pemberly-m3/migrate","data-layer/recipes","msg-mentions/adapters/application","@linkedin/ember-pem/mixins/pem-adapter"],function(e,t,n,i,o,s,a){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var r=s.default.extend(i.AdapterPemberlyM3Mixin,a.default,{_schema:Ember.inject.service("m3-schema"),globalHttpHeaders:Ember.inject.service("global-services@global-http-headers"),headers:Ember.computed("currentRequestType","requestNormalized","globalHttpHeaders",(function(){var e=(0,t.default)(this.get("currentRequestType"),this.get("requestNormalized"),this.get("globalHttpHeaders").getGlobalHeaders())
+e.Accept="application/vnd.linkedin.normalized+json+2.1"
+return e})).volatile(),init:function(){this._super.apply(this,arguments)
+this.recipes=(0,n.normalizeKeys)(o.default)}})
+e.default=r})
+define.alias("data-layer/adapters/application","msg-mentions/adapters/application")
+define.alias("artdeco-button/components/artdeco-button","msg-mentions/components/artdeco-button")
+define.alias("artdeco-card/components/artdeco-card-image","msg-mentions/components/artdeco-card-image")
+define.alias("artdeco-card/components/artdeco-card","msg-mentions/components/artdeco-card")
+define.alias("artdeco-modal/components/artdeco-confirmation-dialog","msg-mentions/components/artdeco-confirmation-dialog")
+define.alias("artdeco-modal/components/container","msg-mentions/components/artdeco-modal-container")
+define.alias("artdeco-modal/components/artdeco-modal-content","msg-mentions/components/artdeco-modal-content")
+define.alias("artdeco-modal/components/artdeco-modal-footer","msg-mentions/components/artdeco-modal-footer")
+define.alias("artdeco-modal/components/artdeco-modal-header","msg-mentions/components/artdeco-modal-header")
+define.alias("artdeco-modal/components/artdeco-modal","msg-mentions/components/artdeco-modal")
+define.alias("ember-wormhole/components/ember-wormhole","msg-mentions/components/ember-wormhole")
+define.alias("artdeco-icons-web/components/linkedin-logo","msg-mentions/components/linkedin-logo")
+define("msg-mentions/components/mention-all-picker-option",["exports","@babel/runtime/helpers/esm/classCallCheck","@babel/runtime/helpers/esm/assertThisInitialized","@babel/runtime/helpers/esm/possibleConstructorReturn","@babel/runtime/helpers/esm/getPrototypeOf","@babel/runtime/helpers/esm/inherits","@babel/runtime/helpers/esm/defineProperty","@ember-decorators/component","msg-mentions/templates/components/mention-all-picker-option"],function(e,t,n,i,o,s,a,r,l){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var m
+function c(e){return function(){var t,n=(0,o.default)(e)
+if((function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1
+if(Reflect.construct.sham)return!1
+if("function"==typeof Proxy)return!0
+try{Date.prototype.toString.call(Reflect.construct(Date,[],(function(){})))
+return!0}catch(e){return!1}})()){var s=(0,o.default)(this).constructor
+t=Reflect.construct(n,arguments,s)}else t=n.apply(this,arguments)
+return(0,i.default)(this,t)}}var u=(0,r.layout)(l.default)(m=(0,r.tagName)("li")(m=(0,r.classNames)("msg-form__mention-option")(m=(0,r.attributeBindings)("data-mentions-picker-option","role","tabindex")(m=(function(e){(0,s.default)(o,e)
+var i=c(o)
+function o(){var e;(0,t.default)(this,o)
+for(var s=arguments.length,r=new Array(s),l=0;l<s;l++)r[l]=arguments[l]
+e=i.call.apply(i,[this].concat(r));(0,a.default)((0,n.default)(e),"data-mentions-picker-option",!0);(0,a.default)((0,n.default)(e),"role","option");(0,a.default)((0,n.default)(e),"tabindex",0)
+return e}return o})(Ember.Component))||m)||m)||m)||m
+e.default=u})
+define("msg-mentions/components/mention-to-invite-toast",["exports","@babel/runtime/helpers/esm/initializerDefineProperty","@babel/runtime/helpers/esm/classCallCheck","@babel/runtime/helpers/esm/createClass","@babel/runtime/helpers/esm/assertThisInitialized","@babel/runtime/helpers/esm/get","@babel/runtime/helpers/esm/possibleConstructorReturn","@babel/runtime/helpers/esm/getPrototypeOf","@babel/runtime/helpers/esm/inherits","@babel/runtime/helpers/esm/defineProperty","@babel/runtime/helpers/esm/applyDecoratedDescriptor","@babel/runtime/helpers/esm/initializerWarningHelper","data-layer/helpers/global/name","msg-shared/utils/constants","msg-shared/utils/custom-tracking","msg-mentions/templates/components/mention-to-invite-toast"],function(e,t,n,i,o,s,a,r,l,m,c,u,p,d,f,b){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var h,g,y,v,_,k,T,M,P,E,x,N,w,I,C,O,D
+function R(e){return function(){var t,n=(0,r.default)(e)
+if((function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1
+if(Reflect.construct.sham)return!1
+if("function"==typeof Proxy)return!0
+try{Date.prototype.toString.call(Reflect.construct(Date,[],(function(){})))
+return!0}catch(e){return!1}})()){var i=(0,r.default)(this).constructor
+t=Reflect.construct(n,arguments,i)}else t=n.apply(this,arguments)
+return(0,a.default)(this,t)}}var z=d.default.ACTION_TYPES.ADD,j=d.default.CONTROL_NAMES.ACTIONS,A=(h=Ember.inject.service("authentication@authenticated-user"),g=Ember.inject.service("msg-data@data-manager"),y=Ember.inject.service("tracking"),v=Ember.inject.service("persistent-toast-manager"),_=Ember.inject.service("i18n"),k=Ember.inject.service("global-services@a11y-notification"),T=Ember.computed.notEmpty("membersToInvite.length").readOnly(),M=Ember.computed("membersToInvite").readOnly(),P=Ember.computed("membersToInvite").readOnly(),E=(function(e){(0,l.default)(c,e)
+var a=R(c)
+function c(){var e;(0,n.default)(this,c)
+for(var i=arguments.length,s=new Array(i),r=0;r<i;r++)s[r]=arguments[r]
+e=a.call.apply(a,[this].concat(s));(0,t.default)((0,o.default)(e),"authenticatedUser",x,(0,o.default)(e));(0,t.default)((0,o.default)(e),"msgDataManager",N,(0,o.default)(e));(0,t.default)((0,o.default)(e),"tracking",w,(0,o.default)(e));(0,t.default)((0,o.default)(e),"persistentToastManager",I,(0,o.default)(e));(0,t.default)((0,o.default)(e),"i18n",C,(0,o.default)(e));(0,t.default)((0,o.default)(e),"a11yNotification",O,(0,o.default)(e));(0,m.default)((0,o.default)(e),"showConfirmModal",!1);(0,t.default)((0,o.default)(e),"showMentionToInviteBanner",D,(0,o.default)(e))
+return e}(0,i.default)(c,[{key:"didRender",value:function(){(0,s.default)((0,r.default)(c.prototype),"didRender",this).apply(this,arguments)
+var e=this.element,t=e&&e.querySelector(".msg-form__mention-to-invite-toast-card__text")
+if(t){t.focus()
+var n=this.membersToInvite.length
+n<=2?this.a11yNotify("i18n_up_to_2_participants_not_in_group_conversation",{names:this.membersToInviteNames,count:n}):this.a11yNotify("i18n_3_or_more_participants_not_in_group_conversation",{name1:this.membersToInviteNames[0],name2:this.membersToInviteNames[1],othersCount:this.othersCount})}}},{key:"resetMentionedMembers",value:function(){Ember.set(this,"membersToInvite",null)}},{key:"addToast",value:function(){var e=this.i18n.getMessageRenderer(b.default,"i18n_num_participants_added")([{count:this.addedParticipantsCount}])
+this.persistentToastManager.success({message:e})}},{key:"a11yNotify",value:function(e,t){var n=this.i18n.getMessageRenderer(b.default,e)
+this.a11yNotification.setTextInLiveRegion(n([t]))}},{key:"addParticipants",value:function(){var e=this
+Ember.set(this,"addedParticipantsCount",this.membersToInvite.length)
+this.msgDataManager.addParticipants(this.membersToInvite,Ember.get(this,"authenticatedUser.miniProfile.entityUrn"),this.conversation,!0).then((function(){if(!e.isDestroying){f.default.fireDetailActionEvent(e.tracking,e.conversation,z,"".concat(e.actionTrackingPrefix).concat(j.ADD_PARTICIPANTS),"mention_to_invite")
+e.addToast()}}))
+Ember.set(this,"showConfirmModal",!1)
+this.resetMentionedMembers()
+Ember.tryInvoke(this,"onToastDismiss")}},{key:"closeModal",value:function(){var e=this.actionTrackingPrefix||""
+this.tracking.fireInteractionEvent("".concat(e,"at_mention_confirmation_cancel"))
+Ember.set(this,"showConfirmModal",!1)
+this.resetMentionedMembers()
+Ember.tryInvoke(this,"onToastDismiss")}},{key:"closeToast",value:function(){var e=this.actionTrackingPrefix||""
+this.tracking.fireInteractionEvent("".concat(e,"at_mention_x_out"))
+this.resetMentionedMembers()
+Ember.tryInvoke(this,"onToastDismiss")}},{key:"membersToInviteNames",get:function(){return(this.membersToInvite||[]).map(p.getName)}},{key:"othersCount",get:function(){return Ember.get(this,"membersToInvite.length")-2}}])
+return c})(Ember.Component),x=(0,c.default)(E.prototype,"authenticatedUser",[h],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),N=(0,c.default)(E.prototype,"msgDataManager",[g],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),w=(0,c.default)(E.prototype,"tracking",[y],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),I=(0,c.default)(E.prototype,"persistentToastManager",[v],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),C=(0,c.default)(E.prototype,"i18n",[_],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),O=(0,c.default)(E.prototype,"a11yNotification",[k],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),D=(0,c.default)(E.prototype,"showMentionToInviteBanner",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),(0,c.default)(E.prototype,"membersToInviteNames",[M],Object.getOwnPropertyDescriptor(E.prototype,"membersToInviteNames"),E.prototype),(0,c.default)(E.prototype,"othersCount",[P],Object.getOwnPropertyDescriptor(E.prototype,"othersCount"),E.prototype),(0,c.default)(E.prototype,"addParticipants",[Ember._action],Object.getOwnPropertyDescriptor(E.prototype,"addParticipants"),E.prototype),(0,c.default)(E.prototype,"closeModal",[Ember._action],Object.getOwnPropertyDescriptor(E.prototype,"closeModal"),E.prototype),(0,c.default)(E.prototype,"closeToast",[Ember._action],Object.getOwnPropertyDescriptor(E.prototype,"closeToast"),E.prototype),E)
+e.default=A})
+define("msg-mentions/components/mentions-picker-option",["exports","@babel/runtime/helpers/esm/classCallCheck","@babel/runtime/helpers/esm/assertThisInitialized","@babel/runtime/helpers/esm/possibleConstructorReturn","@babel/runtime/helpers/esm/getPrototypeOf","@babel/runtime/helpers/esm/inherits","@babel/runtime/helpers/esm/defineProperty","@ember-decorators/component","msg-mentions/templates/components/mentions-picker-option"],function(e,t,n,i,o,s,a,r,l){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var m
+function c(e){return function(){var t,n=(0,o.default)(e)
+if((function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1
+if(Reflect.construct.sham)return!1
+if("function"==typeof Proxy)return!0
+try{Date.prototype.toString.call(Reflect.construct(Date,[],(function(){})))
+return!0}catch(e){return!1}})()){var s=(0,o.default)(this).constructor
+t=Reflect.construct(n,arguments,s)}else t=n.apply(this,arguments)
+return(0,i.default)(this,t)}}var u=(0,r.layout)(l.default)(m=(0,r.tagName)("li")(m=(0,r.classNames)("msg-form__mention-option")(m=(0,r.attributeBindings)("data-mentions-picker-option","role","tabindex")(m=(function(e){(0,s.default)(o,e)
+var i=c(o)
+function o(){var e;(0,t.default)(this,o)
+for(var s=arguments.length,r=new Array(s),l=0;l<s;l++)r[l]=arguments[l]
+e=i.call.apply(i,[this].concat(r));(0,a.default)((0,n.default)(e),"data-mentions-picker-option",!0);(0,a.default)((0,n.default)(e),"role","option");(0,a.default)((0,n.default)(e),"tabindex",0)
+return e}return o})(Ember.Component))||m)||m)||m)||m
+e.default=u})
+define("msg-mentions/components/mentions-picker",["exports","@babel/runtime/helpers/esm/initializerDefineProperty","@babel/runtime/helpers/esm/classCallCheck","@babel/runtime/helpers/esm/createClass","@babel/runtime/helpers/esm/assertThisInitialized","@babel/runtime/helpers/esm/get","@babel/runtime/helpers/esm/possibleConstructorReturn","@babel/runtime/helpers/esm/getPrototypeOf","@babel/runtime/helpers/esm/inherits","@babel/runtime/helpers/esm/defineProperty","@babel/runtime/helpers/esm/applyDecoratedDescriptor","@babel/runtime/helpers/esm/initializerWarningHelper","@ember-decorators/component","global-utils/utils/is-browser","msg-mentions/templates/components/mentions-picker"],function(e,t,n,i,o,s,a,r,l,m,c,u,p,d,f){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var b,h,g,y,v,_,k,T,M
+function P(e){return function(){var t,n=(0,r.default)(e)
+if((function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1
+if(Reflect.construct.sham)return!1
+if("function"==typeof Proxy)return!0
+try{Date.prototype.toString.call(Reflect.construct(Date,[],(function(){})))
+return!0}catch(e){return!1}})()){var i=(0,r.default)(this).constructor
+t=Reflect.construct(n,arguments,i)}else t=n.apply(this,arguments)
+return(0,a.default)(this,t)}}var E=(b=(0,p.layout)(f.default),h=(0,p.tagName)("ul"),g=(0,p.classNames)("msg-form__mentions-picker"),y=(0,p.classNameBindings)("isTabbingThroughMentions::msg-form__mentions-picker--auto-selected"),v=(0,p.attributeBindings)("data-mentions-picker","role","style"),_=Ember.computed.reads("mentionsTopPosition").readOnly(),b(k=h(k=g(k=y(k=v(k=(T=(function(e){(0,l.default)(c,e)
+var a=P(c)
+function c(){var e;(0,n.default)(this,c)
+for(var i=arguments.length,s=new Array(i),r=0;r<i;r++)s[r]=arguments[r]
+e=a.call.apply(a,[this].concat(s));(0,m.default)((0,o.default)(e),"data-mentions-picker",!0);(0,m.default)((0,o.default)(e),"role","listbox");(0,t.default)((0,o.default)(e),"style",M,(0,o.default)(e))
+return e}(0,i.default)(c,[{key:"didInsertElement",value:function(){var e=this;(0,s.default)((0,r.default)(c.prototype),"didInsertElement",this).apply(this,arguments)
+d.default&&this.addEventListener(document,"click",(function(t){var n=t.target
+e.element.contains(n)||Ember.tryInvoke(e,"closeMentions")}))}}])
+return c})(Ember.Component),M=(0,c.default)(T.prototype,"style",[_],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),T))||k)||k)||k)||k)||k)
+e.default=E})
+define("msg-mentions/config/environment",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t
+try{var n=document.querySelector('meta[name="msg-mentions/config/environment"]').getAttribute("content")
+t=JSON.parse(unescape(n))}catch(o){t={}}var i=t
+e.default=i})
+define.alias("ember-m3/adapters/interop-debug-adapter","msg-mentions/data-adapter")
+define.alias("ember-cli-pemberly-i18n/helpers/bidi-dir","msg-mentions/helpers/bidi-dir")
+define.alias("ember-cli-pemberly-i18n/helpers/format-currency","msg-mentions/helpers/format-currency")
+define.alias("ember-cli-pemberly-i18n/helpers/format-date","msg-mentions/helpers/format-date")
+define.alias("ember-cli-pemberly-i18n/helpers/format-name","msg-mentions/helpers/format-name")
+define.alias("ember-cli-pemberly-i18n/helpers/format-number","msg-mentions/helpers/format-number")
+define.alias("ember-cli-pemberly-i18n/helpers/format-time","msg-mentions/helpers/format-time")
+define.alias("ember-cli-pemberly-i18n/helpers/format-truncate","msg-mentions/helpers/format-truncate")
+define.alias("ember-cli-pemberly-i18n/helpers/is-any-locale","msg-mentions/helpers/is-any-locale")
+define.alias("ember-cli-pemberly-i18n/helpers/is-cjk-language","msg-mentions/helpers/is-cjk-language")
+define.alias("ember-cli-pemberly-i18n/helpers/is-rtl-content","msg-mentions/helpers/is-rtl-content")
+define.alias("ember-cli-pemberly-i18n/helpers/is-rtl-language","msg-mentions/helpers/is-rtl-language")
+define.alias("artdeco-icons-web/helpers/li-icon","msg-mentions/helpers/li-icon")
+define.alias("ember-cli-pemberly-i18n/helpers/t-link-to","msg-mentions/helpers/t-link-to")
+define.alias("ember-cli-pemberly-i18n/helpers/t-make-name","msg-mentions/helpers/t-make-name")
+define.alias("ember-cli-pemberly-i18n/helpers/t","msg-mentions/helpers/t")
+define.alias("ember-cli-pemberly-i18n/initializers/i18n","msg-mentions/initializers/i18n")
+define("msg-mentions/initializers/icons",["exports","artdeco-icons-web/src/icons","msg-mentions/config/environment"],function(e,t,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+function i(e){throw e}var o={name:"icons",initialize:function(){var e,o,s=n.default.environment,a=n.default.APP
+if(a){e=a.artdecoCustomSpriteUrl
+o=a.artdecoCustomSpriteName}var r="test"!==s
+t.default.load(r,e,o).catch(i)}}
+e.default=o})
+define.alias("ember-m3/initializers/m3-store","msg-mentions/initializers/m3-store")
+define("msg-mentions/instance-initializers/-t-link-to",["exports","ember-stdlib/utils/is-browser"],function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.initialize=n
+e.default=void 0
+function n(e){t.default&&e.lookup("service:-t-link-to")}var i={name:"-t-link-to",initialize:n}
+e.default=i})
+define.alias("data-layer/recipes","msg-mentions/recipes")
+define("msg-mentions/serializers/application",["exports","ember-cli-pemberly-m3"],function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var n=t.PemberlyM3Serializer.extend({init:function(){this._super.apply(this,arguments)
+this.packagePrefix="com.linkedin.voyager."}})
+e.default=n})
+define.alias("ember-cli-pemberly-i18n/services/-t-link-to","msg-mentions/services/-t-link-to")
+define.alias("artdeco-modal/services/artdeco-modal","msg-mentions/services/artdeco-modal")
+define.alias("ember-cli-pemberly-i18n/services/formatter","msg-mentions/services/formatter")
+define.alias("ember-cli-pemberly-i18n/services/i18n","msg-mentions/services/i18n")
+define.alias("ember-cli-pemberly-i18n/services/locale","msg-mentions/services/locale")
+define.alias("ember-m3/services/m3-schema-manager","msg-mentions/services/m3-schema-manager")
+define.alias("data-layer/services/m3-schema","msg-mentions/services/m3-schema")
+define.alias("@linkedin/ember-pem/services/pem-tracking","msg-mentions/services/pem-tracking")
+define.alias("data-layer/services/prefetch","msg-mentions/services/prefetch")
+define.alias("ember-cli-pemberly-m3/services/store","msg-mentions/services/store")
+define("msg-mentions/templates/components/mention-all-picker-option",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"O5PRsjaZ",block:'{"symbols":[],"statements":[[7,"span",true],[10,"class","EntityPhoto-circle-2 ghost-group"],[8],[0,"\\n"],[9],[0,"\\n"],[7,"div",true],[10,"class","display-flex flex-column pl2 truncate"],[8],[0,"\\n  "],[7,"span",true],[10,"class","t-14 t-black t-bold truncate"],[8],[0,"\\n    "],[1,[28,"t",["i18n_mention_all","msg-mentions/templates/components/mention-all-picker-option"],null],false],[0,"\\n  "],[9],[0,"\\n  "],[7,"span",true],[10,"class","t-12 t-black--light t-normal truncate"],[8],[0,"\\n    "],[1,[28,"t",["i18n_notify_entire_group","msg-mentions/templates/components/mention-all-picker-option"],null],false],[0,"\\n  "],[9],[0,"\\n"],[9]],"hasEval":false}',meta:{moduleName:"msg-mentions/templates/components/mention-all-picker-option.hbs"}})
+e.default=t})
+define("msg-mentions/templates/components/mention-to-invite-toast",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"XyL+KmZl",block:'{"symbols":[],"statements":[[4,"if",[[23,0,["showMentionToInviteBanner"]]],null,{"statements":[[0,"  "],[5,"artdeco-card@artdeco-card",[],[["@isDismissable","@onDismiss","@classNames","@dismissText","@tabindex"],[true,[28,"action",[[23,0,[]],"closeToast"],null],"msg-form__mention-to-invite-toast-card",[28,"t",["a11y_dismiss_mention-to-invite-toast","msg-mentions/templates/components/mention-to-invite-toast"],null],"0"]],{"statements":[[0,"\\n    "],[7,"div",true],[8],[0,"\\n      "],[1,[28,"artdeco-icons-web@li-icon",null,[["type","class"],["notify-pebble-icon","msg-form__mention-to-invite-toast-icon mr2"]]],false],[0,"\\n    "],[9],[0,"\\n    "],[7,"div",true],[10,"class","mr4 t-14"],[8],[0,"\\n      "],[7,"span",true],[10,"tabindex","0"],[10,"class","msg-form__mention-to-invite-toast-card__text mr1"],[8],[0,"\\n"],[4,"if",[[28,"global-helpers@gte",[2,[23,0,["membersToInvite","length"]]],null]],null,{"statements":[[0,"          "],[1,[28,"t",["i18n_up_to_2_participants_not_in_group_conversation","msg-mentions/templates/components/mention-to-invite-toast"],[["names","count"],[[23,0,["membersToInviteNames"]],[23,0,["membersToInvite","length"]]]]],false],[0,"\\n"]],"parameters":[]},{"statements":[[0,"          "],[1,[28,"t",["i18n_3_or_more_participants_not_in_group_conversation","msg-mentions/templates/components/mention-to-invite-toast"],[["name1","name2","othersCount"],[[28,"get",[[23,0,["membersToInviteNames"]],"0"],null],[28,"get",[[23,0,["membersToInviteNames"]],"1"],null],[23,0,["othersCount"]]]]],false],[0,"\\n"]],"parameters":[]}],[0,"      "],[9],[0,"\\n      "],[7,"a",true],[10,"tabindex","0"],[11,"aria-label",[28,"t",["a11y_add_mentioned_members","msg-mentions/templates/components/mention-to-invite-toast"],null]],[11,"data-control-name",[28,"concat",[[23,0,["actionTrackingPrefix"]],"at_mention_add_them"],null]],[10,"class","msg-form__mention-to-invite-toast-link"],[11,"onclick",[28,"action",[[23,0,[]],[28,"mut",[[23,0,["showConfirmModal"]]],null],true],null]],[8],[0,"\\n        "],[1,[28,"t",["i18n_add_them","msg-mentions/templates/components/mention-to-invite-toast"],null],false],[0,"\\n      "],[9],[0,"\\n    "],[9],[0,"\\n  "]],"parameters":[]}],[0,"\\n"]],"parameters":[]},null],[0,"\\n"],[5,"artdeco-modal@artdeco-confirmation-dialog",[],[["@isOpen","@title","@content","@primaryActionText","@primaryActionTextA11y","@secondaryActionText","@secondaryActionTextA11y","@onPrimary","@onSecondary","@onEscape","@primaryControlName","@size"],[[23,0,["showConfirmModal"]],[28,"if",[[28,"global-helpers@gte",[2,[23,0,["membersToInvite","length"]]],null],[28,"t",["i18n_add_up_to_2_members_to_this_conversation_prompt","msg-mentions/templates/components/mention-to-invite-toast"],[["names"],[[23,0,["membersToInviteNames"]]]]],[28,"t",["i18n_add_3_or_more_members_to_this_conversation_prompt","msg-mentions/templates/components/mention-to-invite-toast"],[["name1","name2","othersCount"],[[28,"get",[[23,0,["membersToInviteNames"]],"0"],null],[28,"get",[[23,0,["membersToInviteNames"]],"1"],null],[23,0,["othersCount"]]]]]],null],[28,"t",["i18n_new_members_will_see_history","msg-mentions/templates/components/mention-to-invite-toast"],null],[28,"t",["i18n_yes","msg-mentions/templates/components/mention-to-invite-toast"],null],[28,"t",["a11y_confirm_add_mentioned_members","msg-mentions/templates/components/mention-to-invite-toast"],null],[28,"t",["i18n_cancel","msg-mentions/templates/components/mention-to-invite-toast"],null],[28,"t",["a11y_dismiss_add_mentioned_members","msg-mentions/templates/components/mention-to-invite-toast"],null],[28,"action",[[23,0,[]],"addParticipants"],null],[28,"action",[[23,0,[]],"closeModal"],null],[28,"action",[[23,0,[]],"closeModal"],null],[28,"concat",[[23,0,["actionTrackingPrefix"]],"at_mention_confirmation_add"],null],"medium"]]],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"msg-mentions/templates/components/mention-to-invite-toast.hbs"}})
+e.default=t})
+define("msg-mentions/templates/components/mentions-picker-option",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"pBsk7YiO",block:'{"symbols":[],"statements":[[5,"presence@entity-with-presence",[],[["@classNames","@miniProfile","@size"],["msg-form__mention-entity",[23,0,["mention","entity","miniProfile"]],2]]],[0,"\\n"],[7,"div",true],[10,"class","display-flex flex-column pl2 truncate"],[8],[0,"\\n  "],[7,"span",true],[10,"class","t-14 t-black t-bold truncate"],[8],[0,"\\n    "],[1,[28,"ember-cli-pemberly-i18n@format-name",null,[["firstName","lastName","type"],[[23,0,["mention","entity","miniProfile","firstName"]],[23,0,["mention","entity","miniProfile","lastName"]],"full"]]],false],[0,"\\n  "],[9],[0,"\\n  "],[7,"span",true],[10,"class","t-12 t-black--light t-normal truncate"],[8],[0,"\\n    "],[1,[23,0,["mention","entity","miniProfile","occupation"]],false],[0,"\\n  "],[9],[0,"\\n"],[9]],"hasEval":false}',meta:{moduleName:"msg-mentions/templates/components/mentions-picker-option.hbs"}})
+e.default=t})
+define("msg-mentions/templates/components/mentions-picker",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var t=Ember.HTMLBars.template({id:"pfTYttpq",block:'{"symbols":["mention","mention"],"statements":[[4,"if",[[23,0,["showMentionAllOption"]]],null,{"statements":[[0,"  "],[5,"msg-mentions@mention-all-picker-option",[],[["@mention","@click","@keyDown"],[[23,0,["mentionAll"]],[28,"action",[[23,0,[]],[23,0,["selectMention"]],[23,0,["mentionAll"]]],null],[28,"action",[[23,0,[]],[23,0,["selectMentionWithKeyDown"]],[23,0,["mentionAll"]]],null]]]],[0,"\\n"]],"parameters":[]},null],[4,"each",[[23,0,["conversationMentions"]]],null,{"statements":[[0,"  "],[5,"msg-mentions@mentions-picker-option",[],[["@mention","@click","@keyDown"],[[23,2,[]],[28,"action",[[23,0,[]],[23,0,["selectMention"]],[23,2,[]]],null],[28,"action",[[23,0,[]],[23,0,["selectMentionWithKeyDown"]],[23,2,[]]],null]]]],[0,"\\n"]],"parameters":[2]},null],[4,"if",[[23,0,["connectionMentions","length"]]],null,{"statements":[[0,"  "],[7,"li",true],[10,"class","msg-form__mentions-picker-connections-title t-12 t-black--light t-bold ph2 pt2 pb1"],[8],[0,"\\n    "],[1,[28,"t",["i18n_connections_header","msg-mentions/templates/components/mentions-picker"],null],false],[0,"\\n  "],[9],[0,"\\n"]],"parameters":[]},null],[4,"each",[[23,0,["connectionMentions"]]],null,{"statements":[[0,"  "],[5,"msg-mentions@mentions-picker-option",[],[["@mention","@click","@keyDown"],[[23,1,[]],[28,"action",[[23,0,[]],[23,0,["selectMention"]],[23,1,[]]],null],[28,"action",[[23,0,[]],[23,0,["selectMentionWithKeyDown"]],[23,1,[]]],null]]]],[0,"\\n"]],"parameters":[1]},null]],"hasEval":false}',meta:{moduleName:"msg-mentions/templates/components/mentions-picker.hbs"}})
+e.default=t})
+define.alias("@linkedin/ember-restli-api-metadata/utils/schema-helpers","msg-mentions/utils/schema-helpers")
+
+//# sourceMappingURL=engine.map
