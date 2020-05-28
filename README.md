@@ -21,7 +21,7 @@ which means you can use them for any purpose, even for commercial projects.) to 
 
 ## Features
 Our website includes json data . This feature adds convenience to add as many new Item as market demand
-and easily design the page as we want
+and easily design the page as we want, depolyed to github and heroku.
 
 ## Features Left to Implement
  I will build up on this project and link a database which contain varity of cloths and will take order from customer.  
@@ -32,3 +32,5 @@ and easily design the page as we want
 * https://startbootstrap.com
 
 * https://twitter.com/SBootstrap
+
+* Pictures from Afghan Dresses
