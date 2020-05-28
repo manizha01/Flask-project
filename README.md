@@ -27,6 +27,8 @@ and easily design the page as we want
  I will build up on this project and link a database which contain varity of cloths and will take order from customer.  
  
 # Credits:
-Anmar Jarjees My Instrator 
-https://startbootstrap.com
-https://twitter.com/SBootstrap
+* Anmar Jarjees My Instrator
+
+* https://startbootstrap.com
+
+*https://twitter.com/SBootstrap
