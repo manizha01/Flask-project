@@ -3,21 +3,22 @@
 {% block content %}
 
 <!--<a href="/detail/{ { first[0]['type'] } }">-->
-
+<br>
+<br>
 <h1>Items in Sale</h1>
 <br>
 
 <ul>
-<li><s>$55.89</s><strong><mark>Now $20.00</mark></strong></li>
-<li>Price was {{ ab[0]["price"] }}</li>
-<li>Availible colors: {{ ab[0]["color"] }}</li>
+    <li><s>$55.89</s><strong><mark>Now $20.00</mark></strong></li>
+    <li>Price was {{ ab[0]["price"] }}</li>
+    <li>Availible colors: {{ ab[0]["color"] }}</li>
 </ul>
 <ul>
-{% for pro in ab %}
-<img class="featurette-image img-responsive" src="{{ pro.item }}">
-<li><s>{{ pro.price}}</s><strong><mark>Now $150.00</mark></strong></li>
-<li>Price was {{ pro.price }}</li>
-<li>Availible colors: {{ pro.color }}</li>
+    {% for pro in ab %}
+    <img class="featurette-image img-responsive" src="{{ pro.item }}">
+    <li><s>{{ pro.price}}</s><strong><mark>Now $150.00</mark></strong></li>
+    <li>Price was {{ pro.price }}</li>
+    <li>Availible colors: {{ pro.color }}</li>
 </ul>
 <br>
 
