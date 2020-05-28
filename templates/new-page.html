@@ -3,15 +3,14 @@
 {% block content %}
 <br>
 <br>
-<div class="row">
+<div class="row featurette">
     <div class="col-md-5">
-        <img src="{{ page.image }}" alt="image of dress {{ page.name}}" />
-
-        <h2 class="col-md-7">{{ page.name }}</h2>
+        <img src="{{ page.image }}" width="600px" height="500px" alt="image of dress" />
     </div>
-</div>
-
-<div class="col-md-12">
-    <p>{{ page.description }}</p>
-</div>
+    <div class="col-md-7">
+        <h2 class=>{{ page.name }}</h2>
+        <p>{{ page.description }}</p>
+        <p>{{ page.color }}</p>
+        <p>{{ page.price }}</p>
+    </div>
 {% endblock%}
