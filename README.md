@@ -31,4 +31,4 @@ and easily design the page as we want
 
 * https://startbootstrap.com
 
-*https://twitter.com/SBootstrap
+* https://twitter.com/SBootstrap
