@@ -14,14 +14,6 @@ def index():
         data = json.load(list_json_data)
     return render_template("index.html",first = data)
 
-#I keep below lindes for my notes.
-#@app.route("/index/<detail_name>")
-#def index_detail(detail_name):
-   # data = []
-   # with open("data/list.json","r") as json_data:
-       # data = json. load (json_data)
-       # return render_template("detail.html",second = data)
-
 
 @app.route("/about")
 def about():
